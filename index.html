@@ -76,13 +76,33 @@
       background: white;
       border-radius: 12px;
       box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
-      background-image: url('https://imgur.com/a/7f3XJHJ'); /* Substitua aqui pelo link real da imagem */
+      background-image: url('https://i.imgur.com/EWuHTwy.png');
       background-size: cover;
       background-position: center;
       opacity: 0;
       transform: scale(0.8);
       transition: opacity 1s ease, transform 1s ease;
       z-index: 1;
+    }
+
+    #download {
+      position: absolute;
+      bottom: 30px;
+      background: #d9b6a3;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      font-family: Georgia, serif;
+      font-size: 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      display: none;
+      z-index: 3;
+    }
+
+    .open #download {
+      display: block;
     }
 
     .open .envelope {
@@ -100,6 +120,7 @@
   <div class="container" id="container">
     <div class="envelope"></div>
     <div class="invitation"></div>
+    <a id="download" href="https://i.imgur.com/EWuHTwy.png" download="convite-izabele-sandro.png">Baixar Convite</a>
   </div>
 
   <script>
