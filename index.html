@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Convite de Casamento - Izabele & Sandro</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: linear-gradient(to bottom, #f8f4f0, #fffaf6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font-family: 'Georgia', serif;
+      overflow: hidden;
+    }
+
+    .container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .envelope {
+      width: 80vw;
+      max-width: 300px;
+      height: calc(80vw * 0.66);
+      max-height: 200px;
+      background: #e3c8b5;
+      position: relative;
+      cursor: pointer;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      animation: shake 1.5s infinite;
+      transition: transform 0.6s ease, opacity 0.6s ease;
+      z-index: 2;
+    }
+
+    .envelope::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-width: calc(40vw * 0.66) 40vw 0 40vw;
+      max-border-width: 100px 150px 0 150px;
+      border-style: solid;
+      border-color: #d9b6a3 transparent transparent transparent;
+      z-index: 2;
+      border-radius: 8px 8px 0 0;
+      width: 0;
+      height: 0;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: rotate(0deg); }
+      20% { transform: rotate(-2deg); }
+      40% { transform: rotate(2deg); }
+      60% { transform: rotate(-2deg); }
+      80% { transform: rotate(2deg); }
+    }
+
+    .invitation {
+      position: absolute;
+      width: 90vw;
+      max-width: 600px;
+      aspect-ratio: 3 / 2;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+      background-image: url('https://imgur.com/a/7f3XJHJ'); /* Substitua aqui pelo link real da imagem */
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transform: scale(0.8);
+      transition: opacity 1s ease, transform 1s ease;
+      z-index: 1;
+    }
+
+    .open .envelope {
+      transform: scale(0.5) translateY(-100vh);
+      opacity: 0;
+    }
+
+    .open .invitation {
+      opacity: 1;
+      transform: scale(1);
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="container">
+    <div class="envelope"></div>
+    <div class="invitation"></div>
+  </div>
+
+  <script>
+    const container = document.getElementById('container');
+    const envelope = document.querySelector('.envelope');
+
+    envelope.addEventListener('click', () => {
+      container.classList.add('open');
+    });
+  </script>
+</body>
+</html>
