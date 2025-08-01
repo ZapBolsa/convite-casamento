@@ -126,9 +126,20 @@
   <script>
     const container = document.getElementById('container');
     const envelope = document.querySelector('.envelope');
+    const downloadButton = document.getElementById('download');
 
     envelope.addEventListener('click', () => {
       container.classList.add('open');
+    });
+
+    downloadButton.addEventListener('click', (e) => {
+      e.preventDefault();
+      const link = document.createElement('a');
+      link.href = 'https://i.imgur.com/EWuHTwy.png';
+      link.download = 'convite-izabele-sandro.png';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
     });
   </script>
 </body>
